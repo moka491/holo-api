@@ -1,0 +1,21 @@
+@startuml mediaChannel_entity
+digraph foo {
+
+    overlap=false
+    splines=polyline
+    layout=neato
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		  MediaChannel MediaPlatform Member 
+	  }
+
+    { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1.2]
+       MediaChannel -> {
+            id
+            channelUrl
+            Member
+            MediaPlatform
+       }
+	}
+}
+@enduml                     

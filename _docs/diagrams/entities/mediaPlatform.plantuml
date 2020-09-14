@@ -1,0 +1,20 @@
+@startuml mediaPlatform_entity
+digraph foo {
+
+    overlap=false
+    splines=polyline
+    layout=neato
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		  MediaPlatform
+	  }
+
+    { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1]
+       MediaPlatform -> {
+            id
+            name
+            websiteUrl
+       }
+	}
+}
+@enduml                     

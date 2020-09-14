@@ -1,0 +1,34 @@
+@startuml entity_relations
+digraph foo {
+
+    overlap=false;
+    splines=ortho
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		Company Member Group Livestream SocialChannel MediaChannel SocialPlatform MediaPlatform
+	}
+
+    { node [shape=diamond]
+        "is organized in" "belongs to" "has many" "can have" "works under" "hosts many" "has Account on" "is on" "is part of" "is hosted by" "is hosted on"
+    }
+
+    Company -> "is organized in" -> Group
+
+    Group -> "belongs to" -> Company
+    Group -> "has many" -> Member
+    Group -> "can have" -> Group
+
+    Member -> "works under" -> Company
+    Member -> "is grouped in" -> Group
+    Member -> "hosts many" -> Livestream
+    Member -> "has Account on" -> {MediaChannel SocialChannel}
+
+    SocialChannel -> "is on" -> SocialPlatform
+    MediaChannel -> "is part of" -> MediaPlatform
+
+    Livestream -> "is hosted by" -> Member
+    Livestream -> "is hosted on" -> MediaChannel
+
+    
+}
+@enduml                     

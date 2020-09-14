@@ -1,0 +1,26 @@
+@startuml livestream_entity
+digraph foo {
+
+    overlap=false
+    splines=polyline
+    layout=neato
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		  Livestream Member MediaChannel
+	  }
+
+    { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1.2]
+       Livestream -> {
+            id
+            title
+            streamUrl
+            thumbnailUrl
+            status
+            startDate
+            endDate
+            Member
+            MediaChannel
+       }
+	}
+}
+@enduml                     

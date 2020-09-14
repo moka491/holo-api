@@ -1,0 +1,31 @@
+@startuml member_entity
+digraph foo {
+
+    overlap=false
+    splines=polyline
+    layout=neato
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		Member Company Group Livestream MediaChannel SocialChannel
+	}
+
+    { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1]
+       Member -> name -> {japanese english}
+       Member -> {
+            id
+            nicknames
+            age
+            height
+            gender
+            zodiac
+            emoji
+            debutDate
+            Company
+            Livestream [label="livestreams[]"]
+            MediaChannel [label="mediaChannels[]"]
+            SocialChannel [label="socialChannels[]"]
+            Group
+       }
+	}
+}
+@enduml                     

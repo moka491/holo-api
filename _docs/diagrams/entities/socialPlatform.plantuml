@@ -1,0 +1,20 @@
+@startuml socialPlatform_entity
+digraph foo {
+
+    overlap=false
+    splines=polyline
+    layout=neato
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		  SocialPlatform
+	  }
+
+    { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1.2]
+       SocialPlatform -> {
+            id
+            name
+            websiteUrl
+       }
+	}
+}
+@enduml                     

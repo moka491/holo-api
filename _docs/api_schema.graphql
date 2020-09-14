@@ -1,0 +1,21 @@
+type Company {
+    [Member]
+    [Group]
+}
+
+type Group {
+    [Member]
+    [Group]
+}
+
+type Member {
+    Company
+    [Livestream]
+    [SocialChannel]
+    [MediaChannel]
+}
+
+type Livestream {
+    Member
+    MediaChannel
+}

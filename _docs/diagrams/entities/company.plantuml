@@ -1,0 +1,21 @@
+@startuml company_entity
+digraph foo {
+
+    overlap=false;
+    splines=line;
+
+    { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
+		Company Member Group
+	}
+
+    { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white"]
+       Company -> name -> {japanese english}
+       Company -> {
+           id
+           websiteUrl
+           Member
+           Group
+       }
+	}
+}
+@enduml                     
