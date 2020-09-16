@@ -12,6 +12,7 @@ digraph foo {
     { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1.2]
        SocialChannel -> {
             id
+            name
             channelUrl
             Member
             SocialPlatform
