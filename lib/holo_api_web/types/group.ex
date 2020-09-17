@@ -6,4 +6,14 @@ defmodule HoloApiWeb.Schema.GroupType do
     field :company, :company
     field :members, list_of(:member)
   end
+
+  object :group_queries do
+    @desc "Get all the groups of members, optionally filtered"
+    field :groups, list_of(:group) do
+    end
+
+    @desc "Get a single group by ID or name"
+    field :group, :group do
+    end
+  end
 end

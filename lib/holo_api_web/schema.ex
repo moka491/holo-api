@@ -12,5 +12,13 @@ defmodule HoloApiWeb.Schema do
   import_types(HoloApiWeb.Schema.SocialPlatformType)
 
   query do
+    import_fields(:company_queries)
+    import_fields(:group_queries)
+    import_fields(:livestream_queries)
+    import_fields(:media_channel_queries)
+    import_fields(:media_platform_queries)
+    import_fields(:member_queries)
+    import_fields(:social_channel_queries)
+    import_fields(:social_platform_queries)
   end
 end
