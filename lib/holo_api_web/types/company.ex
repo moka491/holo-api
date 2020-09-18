@@ -2,7 +2,7 @@ defmodule HoloApiWeb.Schema.CompanyType do
   use Absinthe.Schema.Notation
 
   object :company do
-    field :name, :string
+    field :name_i18n, :string_i18n
     field :website_url, :string
     field :members, list_of(:member)
     field :groups, list_of(:group)

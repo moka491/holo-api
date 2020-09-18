@@ -2,12 +2,12 @@ defmodule HoloApiWeb.Schema.MemberType do
   use Absinthe.Schema.Notation
 
   object :member do
-    field :name, :string
+    field :name, :string_i18n
     field :nicknames, list_of(:string)
     field :age, :string
     field :height, :integer
     field :gender, :string
-    field :debut_date, :string
+    field :debut_date, :datetime
     field :zodiac, :string
     field :emoji, :string
     field :company, :company

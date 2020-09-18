@@ -5,7 +5,6 @@ defmodule HoloApiWeb.Schema.LivestreamType do
     field :title, :string
     field :stream_url, :string
     field :thumbnail_url, :string
-    # todo: livestream status type
     field :status, :string
     field :start_date, :datetime
     field :end_date, :datetime
