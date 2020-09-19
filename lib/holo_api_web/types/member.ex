@@ -2,7 +2,8 @@ defmodule HoloApiWeb.Schema.MemberType do
   use Absinthe.Schema.Notation
 
   object :member do
-    field :name, :string_i18n
+    field :name_jp, :string
+    field :name_en, :string
     field :nicknames, list_of(:string)
     field :age, :string
     field :height, :integer

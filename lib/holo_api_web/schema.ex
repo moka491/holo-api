@@ -10,7 +10,6 @@ defmodule HoloApiWeb.Schema do
   import_types(HoloApiWeb.Schema.MemberType)
   import_types(HoloApiWeb.Schema.SocialChannelType)
   import_types(HoloApiWeb.Schema.SocialPlatformType)
-  import_types(HoloApiWeb.Schema.MiscTypes)
 
   query do
     import_fields(:company_queries)
