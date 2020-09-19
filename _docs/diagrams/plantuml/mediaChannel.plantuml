@@ -1,4 +1,4 @@
-@startuml socialChannel_entity
+@startuml mediaChannel_entity
 digraph foo {
 
     overlap=false
@@ -6,16 +6,18 @@ digraph foo {
     layout=neato
 
     { node [shape=box style=filled fillcolor="#5555dd" fontcolor="white"]
-		  SocialChannel SocialPlatform Member 
+		  MediaChannel MediaPlatform Member 
 	  }
 
     { node [shape=circle style=filled fillcolor="#aaaadd" fontcolor="white" fixedsize=true width=1.2]
-       SocialChannel -> {
+       MediaChannel -> {
             id
+            channelId
             name
             channelUrl
+            thumbnailUrl
             Member
-            SocialPlatform
+            MediaPlatform
        }
 	}
 }
