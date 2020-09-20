@@ -4,7 +4,7 @@ defmodule HoloApi.Model.MemberNickname do
   alias HoloApi.Model.Member
 
   schema "member_nicknames" do
-    field :name, :string
+    field :nickname, :string
 
     belongs_to :member, Member
 
