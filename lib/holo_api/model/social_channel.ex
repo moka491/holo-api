@@ -6,7 +6,7 @@ defmodule HoloApi.Model.SocialChannel do
 
   schema "social_channels" do
     field :name, :string
-    field :channel_hash, :string
+    field :channel_id, :string
     field :channel_url, :string
     field :thumbnail_url, :string
 

@@ -3,7 +3,7 @@ defmodule HoloApi.Model.MediaPlatform do
 
   alias HoloApi.Model.MediaChannel
 
-  schema "media_platform" do
+  schema "media_platforms" do
     field :name, :string
     field :website_url, :string
 
