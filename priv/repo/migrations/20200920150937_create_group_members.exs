@@ -3,8 +3,8 @@ defmodule HoloApi.Repo.Migrations.CreateGroupMembers do
 
   def change do
     create table(:group_members) do
-      add(:group_id, references(:groups))
-      add(:member_id, references(:members))
+      add(:group_id, references(:groups), null: false)
+      add(:member_id, references(:members), null: false)
 
       timestamps()
     end

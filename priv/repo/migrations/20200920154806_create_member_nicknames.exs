@@ -3,8 +3,8 @@ defmodule HoloApi.Repo.Migrations.CreateMemberNicknames do
 
   def change do
     create table(:member_nicknames) do
-      add(:member_id, references(:members))
-      add(:nickname, :string)
+      add(:member_id, references(:members), null: false)
+      add(:nickname, :string, null: false)
     end
   end
 end
