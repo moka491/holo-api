@@ -1,6 +1,7 @@
 defmodule HoloApi.Model.Company do
   use Ecto.Schema
 
+  alias HoloApi.Model.Agency
   alias HoloApi.Model.Member
   alias HoloApi.Model.Group
   alias HoloApi.Model.I18nString
