@@ -3,8 +3,7 @@ defmodule HoloApi.Repo.Migrations.CreateMembers do
 
   def change do
     create table(:members) do
-      add(:name_jp, :string)
-      add(:name_en, :string)
+      add(:name_i18n_id, references(:i18n_strings))
       add(:debut_date, :utc_datetime)
       add(:age, :string)
       add(:height, :integer)

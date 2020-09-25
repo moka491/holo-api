@@ -7,10 +7,11 @@ defmodule HoloApi.Model.Member do
   alias HoloApi.Model.Livestream
   alias HoloApi.Model.SocialChannel
   alias HoloApi.Model.MediaChannel
+  alias HoloApi.Model.I18nString
 
   schema "members" do
-    field :name_jp, :string
-    field :name_en, :string
+    belongs_to :name_i18n, I18nString
+
     field :debut_date, :utc_datetime
     field :age, :string
     field :height, :integer
