@@ -7,10 +7,10 @@ defmodule HoloApi.Model.Member do
   alias HoloApi.Model.Livestream
   alias HoloApi.Model.SocialChannel
   alias HoloApi.Model.MediaChannel
-  alias HoloApi.Model.I18nString
 
   schema "members" do
-    belongs_to :name_i18n, I18nString
+    field :name, :string
+    field :name_jp, :string
 
     field :debut_date, :utc_datetime
     field :age, :string
@@ -20,7 +20,7 @@ defmodule HoloApi.Model.Member do
     field :emoji, :string
 
     has_many :nicknames, MemberNickname
-    belongs_to :company, Company
+    belongs_to :agency, Agency
     many_to_many :groups, Group, join_through: "group_members"
 
     has_many :livestreams, Livestream

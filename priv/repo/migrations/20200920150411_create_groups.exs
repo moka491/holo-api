@@ -3,7 +3,8 @@ defmodule HoloApi.Repo.Migrations.CreateGroups do
 
   def change do
     create table(:groups) do
-      add(:name_i18n_id, references(:i18n_strings))
+      add(:name, :string, null: false)
+      add(:name_jp, :string)
       add(:company_id, references(:companies))
 
       timestamps()

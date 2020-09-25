@@ -3,7 +3,8 @@ defmodule HoloApi.Repo.Migrations.CreateCompanies do
 
   def change do
     create table(:companies) do
-      add(:name_i18n_id, references(:i18n_strings))
+      add(:name, :string, null: false)
+      add(:name_jp, :string)
       add(:website_url, :string)
 
       timestamps()
