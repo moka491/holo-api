@@ -2,6 +2,7 @@ defmodule HoloApiWeb.Schema do
   use Absinthe.Schema
 
   import_types(Absinthe.Type.Custom)
+  import_types(HoloApiWeb.Schema.AgencyType)
   import_types(HoloApiWeb.Schema.CompanyType)
   import_types(HoloApiWeb.Schema.GroupType)
   import_types(HoloApiWeb.Schema.LivestreamType)
@@ -12,6 +13,7 @@ defmodule HoloApiWeb.Schema do
   import_types(HoloApiWeb.Schema.SocialPlatformType)
 
   query do
+    import_fields(:agency_queries)
     import_fields(:company_queries)
     import_fields(:group_queries)
     import_fields(:livestream_queries)
