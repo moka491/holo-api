@@ -28,5 +28,15 @@ defmodule HoloApiWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug HoloApiWeb.Router
+
+  if Mix.env() == :dev do
+    plug Absinthe.Plug.GraphiQL,
+      schema: HoloApiWeb.Schema,
+      json_codec: Jason,
+      interface: :playground
+  else
+    plug Absinthe.Plug,
+      schema: HoloApiWeb.Schema,
+      json_codec: Jason
+  end
 end
