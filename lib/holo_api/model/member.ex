@@ -24,8 +24,8 @@ defmodule HoloApi.Model.Member do
     many_to_many :groups, Group, join_through: "group_members"
 
     has_many :livestreams, Livestream
-    has_many :social_channels, SocialChannel
     has_many :media_channels, MediaChannel
+    has_many :social_channels, SocialChannel
 
     timestamps()
   end

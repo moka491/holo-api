@@ -3,7 +3,8 @@ defmodule HoloApiWeb.Schema.GroupType do
 
   object :group do
     field :name, :string
-    field :company, :company
+    field :name_jp, :string
+    field :agency, :agency
     field :members, list_of(:member)
   end
 

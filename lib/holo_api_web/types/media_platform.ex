@@ -4,6 +4,8 @@ defmodule HoloApiWeb.Schema.MediaPlatformType do
   object :media_platform do
     field :name, :string
     field :website_url, :string
+
+    field :media_channels, list_of(:media_channel)
   end
 
   object :media_platform_queries do

@@ -3,7 +3,10 @@ defmodule HoloApiWeb.Schema.SocialChannelType do
 
   object :social_channel do
     field :name, :string
+    field :channel_id, :string
     field :channel_url, :string
+    field :thumbnail_url, :string
+
     field :member, :member
     field :social_platform, :social_platform
   end

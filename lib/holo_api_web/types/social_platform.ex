@@ -4,6 +4,8 @@ defmodule HoloApiWeb.Schema.SocialPlatformType do
   object :social_platform do
     field :name, :string
     field :website_url, :string
+
+    field :social_channels, list_of(:social_channel)
   end
 
   object :social_platform_queries do
