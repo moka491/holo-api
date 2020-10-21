@@ -1,6 +1,8 @@
 defmodule HoloApi.Model.Member do
   use Ecto.Schema
 
+  alias HoloApi.Repo
+  alias HoloApi.Model.Member
   alias HoloApi.Model.Agency
   alias HoloApi.Model.MemberNickname
   alias HoloApi.Model.Group
@@ -28,5 +30,13 @@ defmodule HoloApi.Model.Member do
     has_many :social_channels, SocialChannel
 
     timestamps()
+  end
+
+  def list_all() do
+    Repo.all(Member)
+  end
+
+  def get_by_id(id) do
+    Repo.get(Member, id)
   end
 end

@@ -1,6 +1,8 @@
 defmodule HoloApi.Model.SocialChannel do
   use Ecto.Schema
 
+  alias HoloApi.Repo
+  alias HoloApi.Model.SocialChannel
   alias HoloApi.Model.Member
   alias HoloApi.Model.SocialPlatform
 
@@ -14,5 +16,13 @@ defmodule HoloApi.Model.SocialChannel do
     belongs_to :social_platform, SocialPlatform
 
     timestamps()
+  end
+
+  def list_all() do
+    Repo.all(SocialChannel)
+  end
+
+  def get_by_id(id) do
+    Repo.get(SocialChannel, id)
   end
 end

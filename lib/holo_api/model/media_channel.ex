@@ -1,6 +1,8 @@
 defmodule HoloApi.Model.MediaChannel do
   use Ecto.Schema
 
+  alias HoloApi.Repo
+  alias HoloApi.Model.MediaChannel
   alias HoloApi.Model.Member
   alias HoloApi.Model.MediaPlatform
 
@@ -14,5 +16,13 @@ defmodule HoloApi.Model.MediaChannel do
     belongs_to :media_platform, MediaPlatform
 
     timestamps()
+  end
+
+  def list_all() do
+    Repo.all(MediaChannel)
+  end
+
+  def get_by_id(id) do
+    Repo.get(MediaChannel, id)
   end
 end
