@@ -1,16 +1,55 @@
 defmodule HoloApiWeb.Schema do
   use Absinthe.Schema
 
+  alias HoloApiWeb.Schema.{
+    Agency,
+    Company,
+    Group,
+    Livestream,
+    MediaChannel,
+    MediaPlatform,
+    Member,
+    SocialChannel,
+    SocialPlatform
+  }
+
   import_types(Absinthe.Type.Custom)
-  import_types(HoloApiWeb.Schema.AgencyType)
-  import_types(HoloApiWeb.Schema.CompanyType)
-  import_types(HoloApiWeb.Schema.GroupType)
-  import_types(HoloApiWeb.Schema.LivestreamType)
-  import_types(HoloApiWeb.Schema.MediaChannelType)
-  import_types(HoloApiWeb.Schema.MediaPlatformType)
-  import_types(HoloApiWeb.Schema.MemberType)
-  import_types(HoloApiWeb.Schema.SocialChannelType)
-  import_types(HoloApiWeb.Schema.SocialPlatformType)
+
+  # Agency
+  import_types(Agency.Types)
+  import_types(Agency.Queries)
+
+  # Company
+  import_types(Company.Types)
+  import_types(Company.Queries)
+
+  # Group
+  import_types(Group.Types)
+  import_types(Group.Queries)
+
+  # Livestream
+  import_types(Livestream.Types)
+  import_types(Livestream.Queries)
+
+  # Media Channel
+  import_types(MediaChannel.Types)
+  import_types(MediaChannel.Queries)
+
+  # Media Platform
+  import_types(MediaPlatform.Types)
+  import_types(MediaPlatform.Queries)
+
+  # Member
+  import_types(Member.Types)
+  import_types(Member.Queries)
+
+  # Social Channel
+  import_types(SocialChannel.Types)
+  import_types(SocialChannel.Queries)
+
+  # Social Platform
+  import_types(SocialPlatform.Types)
+  import_types(SocialPlatform.Queries)
 
   query do
     import_fields(:agency_queries)

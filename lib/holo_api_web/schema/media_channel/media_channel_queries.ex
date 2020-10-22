@@ -1,17 +1,7 @@
-defmodule HoloApiWeb.Schema.MediaChannelType do
+defmodule HoloApiWeb.Schema.MediaChannel.Queries do
   use Absinthe.Schema.Notation
 
   alias HoloApiWeb.Resolvers.MediaChannelResolver
-
-  object :media_channel do
-    field :name, :string
-    field :channel_id, :string
-    field :channel_url, :string
-    field :thumbnail_url, :string
-
-    field :member, :member
-    field :media_platform, :media_platform
-  end
 
   object :media_channel_queries do
     @desc "Get all media channels"
@@ -21,7 +11,7 @@ defmodule HoloApiWeb.Schema.MediaChannelType do
 
     @desc "Get a single media channel by ID"
     field :media_channel, :media_channel do
-      arg :id, non_null(:id)
+      arg(:id, non_null(:id))
       resolve(&MediaChannelResolver.find_media_channel/3)
     end
   end
