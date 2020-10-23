@@ -6,6 +6,11 @@ defmodule HoloApiWeb.Schema.SocialChannel.Types do
   """
   object :social_channel do
     @desc """
+    The unique ID of the channel entry.
+    """
+    field :id, :id
+
+    @desc """
     The name of the channel.
     """
     field :name, :string

@@ -6,6 +6,11 @@ defmodule HoloApiWeb.Schema.Company.Types do
   """
   object :company do
     @desc """
+    The unique ID of the company entry.
+    """
+    field :id, :id
+
+    @desc """
     The international name of the company.
     """
     field :name, :string

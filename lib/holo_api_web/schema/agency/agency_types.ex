@@ -6,6 +6,11 @@ defmodule HoloApiWeb.Schema.Agency.Types do
   """
   object :agency do
     @desc """
+    The unique ID of the agency entry.
+    """
+    field :id, :id
+
+    @desc """
     The international name of the agency.
     """
     field :name, :string

@@ -6,6 +6,11 @@ defmodule HoloApiWeb.Schema.MediaPlatform.Types do
   """
   object :media_platform do
     @desc """
+    The unique ID of the platform entry.
+    """
+    field :id, :id
+
+    @desc """
     The name of the platform.
     """
     field :name, :string

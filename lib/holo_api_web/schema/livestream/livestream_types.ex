@@ -6,6 +6,11 @@ defmodule HoloApiWeb.Schema.Livestream.Types do
   """
   object :livestream do
     @desc """
+    The unique ID of the livestream entry.
+    """
+    field :id, :id
+
+    @desc """
     The title of the livestream.
     """
     field :title, :string

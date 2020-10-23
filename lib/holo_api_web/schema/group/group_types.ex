@@ -7,6 +7,11 @@ defmodule HoloApiWeb.Schema.Group.Types do
   """
   object :group do
     @desc """
+    The unique ID of the group entry.
+    """
+    field :id, :id
+
+    @desc """
     The international name of the group.
     """
     field :name, :string

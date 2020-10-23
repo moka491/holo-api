@@ -6,6 +6,11 @@ defmodule HoloApiWeb.Schema.Member.Types do
   """
   object :member do
     @desc """
+    The unique ID of the vtuber entry.
+    """
+    field :id, :id
+
+    @desc """
     The international name of the vtuber.
     """
     field :name, :string
