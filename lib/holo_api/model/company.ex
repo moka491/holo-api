@@ -16,10 +16,12 @@ defmodule HoloApi.Model.Company do
   end
 
   def list_all() do
-    Repo.all(Company) |> Repo.preload(:agencies)
+    Repo.all(Company)
+    |> Repo.preload(:agencies)
   end
 
   def get_by_id(id) do
-    Repo.get(Company, id) |> Repo.preload(:agencies)
+    Repo.get(Company, id)
+    |> Repo.preload(:agencies)
   end
 end
