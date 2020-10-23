@@ -5,7 +5,7 @@ defmodule HoloApi.Repo.Migrations.CreateGroups do
     create table(:groups) do
       add(:name, :string, null: false)
       add(:name_jp, :string)
-      add(:company_id, references(:companies))
+      add(:agency_id, references(:agencies))
 
       timestamps()
     end

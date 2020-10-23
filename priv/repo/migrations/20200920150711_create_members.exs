@@ -12,7 +12,7 @@ defmodule HoloApi.Repo.Migrations.CreateMembers do
       add(:zodiac, :string)
       add(:emoji, :string)
 
-      add(:company_id, references(:companies))
+      add(:agency_id, references(:agencies))
 
       timestamps()
     end
