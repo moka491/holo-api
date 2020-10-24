@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.Member.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A member is a single virtual youtuber personality.
@@ -23,7 +24,7 @@ defmodule HoloApiWeb.Schema.Member.Types do
     @desc """
     The nicknames associated with the vtuber.
     """
-    field :nicknames, list_of(:string)
+    field :nicknames, list_of(:string), resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The age declaration of the vtuber.
@@ -58,26 +59,26 @@ defmodule HoloApiWeb.Schema.Member.Types do
     @desc """
     The agency which the vtuber works for, if done so.
     """
-    field :agency, :agency
+    field :agency, :agency, resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The groups under which the vtuber is commonly categorized.
     """
-    field :groups, list_of(:group)
+    field :groups, list_of(:group), resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The livestreams that the vtuber has done.
     """
-    field :livestreams, list_of(:livestream)
+    field :livestreams, list_of(:livestream), resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The media channels that the vtuber operates on.
     """
-    field :media_channels, list_of(:media_channel)
+    field :media_channels, list_of(:media_channel), resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The social channels that the vtuber operates on.
     """
-    field :social_channels, list_of(:social_channel)
+    field :social_channels, list_of(:social_channel), resolve: dataloader(HoloApi.Repo)
   end
 end

@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.Company.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A company defines an organization that owns one or multiple virtual youtuber agencies.
@@ -28,6 +29,6 @@ defmodule HoloApiWeb.Schema.Company.Types do
     @desc """
     The agencies which are operated by the company.
     """
-    field :agencies, list_of(:agency)
+    field :agencies, list_of(:agency), resolve: dataloader(HoloApi.Repo)
   end
 end

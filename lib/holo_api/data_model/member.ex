@@ -1,14 +1,14 @@
-defmodule HoloApi.Model.Member do
+defmodule HoloApi.DataModel.Member do
   use Ecto.Schema
 
   alias HoloApi.Repo
-  alias HoloApi.Model.Member
-  alias HoloApi.Model.Agency
-  alias HoloApi.Model.MemberNickname
-  alias HoloApi.Model.Group
-  alias HoloApi.Model.Livestream
-  alias HoloApi.Model.SocialChannel
-  alias HoloApi.Model.MediaChannel
+  alias HoloApi.DataModel.Member
+  alias HoloApi.DataModel.Agency
+  alias HoloApi.DataModel.MemberNickname
+  alias HoloApi.DataModel.Group
+  alias HoloApi.DataModel.Livestream
+  alias HoloApi.DataModel.SocialChannel
+  alias HoloApi.DataModel.MediaChannel
 
   schema "members" do
     field :name, :string

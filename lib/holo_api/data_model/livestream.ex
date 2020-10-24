@@ -1,10 +1,10 @@
-defmodule HoloApi.Model.Livestream do
+defmodule HoloApi.DataModel.Livestream do
   use Ecto.Schema
 
   alias HoloApi.Repo
-  alias HoloApi.Model.Livestream
-  alias HoloApi.Model.Member
-  alias HoloApi.Model.MediaChannel
+  alias HoloApi.DataModel.Livestream
+  alias HoloApi.DataModel.Member
+  alias HoloApi.DataModel.MediaChannel
 
   schema "livestreams" do
     field :title, :string

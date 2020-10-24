@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.MediaPlatform.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A media platform is a website or service that hosts livestreams of virtual youtubers.
@@ -23,6 +24,6 @@ defmodule HoloApiWeb.Schema.MediaPlatform.Types do
     @desc """
     The virtual youtuber channels which are hosted on the platform.
     """
-    field :media_channels, list_of(:media_channel)
+    field :media_channels, list_of(:media_channel), resolve: dataloader(HoloApi.Repo)
   end
 end

@@ -1,9 +1,9 @@
-defmodule HoloApi.Model.MediaPlatform do
+defmodule HoloApi.DataModel.MediaPlatform do
   use Ecto.Schema
 
   alias HoloApi.Repo
-  alias HoloApi.Model.MediaPlatform
-  alias HoloApi.Model.MediaChannel
+  alias HoloApi.DataModel.MediaPlatform
+  alias HoloApi.DataModel.MediaChannel
 
   schema "media_platforms" do
     field :name, :string

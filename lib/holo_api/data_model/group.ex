@@ -1,10 +1,10 @@
-defmodule HoloApi.Model.Group do
+defmodule HoloApi.DataModel.Group do
   use Ecto.Schema
 
   alias HoloApi.Repo
-  alias HoloApi.Model.Group
-  alias HoloApi.Model.Agency
-  alias HoloApi.Model.Member
+  alias HoloApi.DataModel.Group
+  alias HoloApi.DataModel.Agency
+  alias HoloApi.DataModel.Member
 
   schema "groups" do
     field :name, :string

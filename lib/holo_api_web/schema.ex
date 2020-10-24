@@ -1,6 +1,8 @@
 defmodule HoloApiWeb.Schema do
   use Absinthe.Schema
 
+  alias HoloApi.Repo
+
   alias HoloApiWeb.Schema.{
     Agency,
     Company,
@@ -61,5 +63,20 @@ defmodule HoloApiWeb.Schema do
     import_fields(:member_queries)
     import_fields(:social_channel_queries)
     import_fields(:social_platform_queries)
+  end
+
+  def context(ctx) do
+    loader =
+      Dataloader.new()
+      |> Dataloader.add_source(
+        Repo,
+        Dataloader.Ecto.new(Repo, query: &Repo.query/2)
+      )
+
+    Map.put(ctx, :loader, loader)
+  end
+
+  def plugins do
+    [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
   end
 end

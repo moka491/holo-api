@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.Livestream.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A livestream is a live event that is, will be, or has been streamed by a virtual youtuber.
@@ -49,6 +50,6 @@ defmodule HoloApiWeb.Schema.Livestream.Types do
     @desc """
     The media channel at which the livestream is hosted.
     """
-    field :media_channel, :media_channel
+    field :media_channel, :media_channel, resolve: dataloader(HoloApi.Repo)
   end
 end

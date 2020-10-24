@@ -1,8 +1,8 @@
 alias HoloApi.Repo
-alias HoloApi.Model.Company
-alias HoloApi.Model.Agency
-alias HoloApi.Model.Member
-alias HoloApi.Model.MemberNickname
+alias HoloApi.DataModel.Company
+alias HoloApi.DataModel.Agency
+alias HoloApi.DataModel.Member
+alias HoloApi.DataModel.MemberNickname
 
 cover =
   %Company{name: "Cover Corp", name_jp: "カバー", website_url: "https://cover-corp.com/"}

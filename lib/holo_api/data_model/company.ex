@@ -1,9 +1,9 @@
-defmodule HoloApi.Model.Company do
+defmodule HoloApi.DataModel.Company do
   use Ecto.Schema
 
   alias HoloApi.Repo
-  alias HoloApi.Model.Company
-  alias HoloApi.Model.Agency
+  alias HoloApi.DataModel.Company
+  alias HoloApi.DataModel.Agency
 
   schema "companies" do
     field :name, :string

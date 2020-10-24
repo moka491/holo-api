@@ -1,10 +1,10 @@
-defmodule HoloApi.Model.SocialChannel do
+defmodule HoloApi.DataModel.SocialChannel do
   use Ecto.Schema
 
   alias HoloApi.Repo
-  alias HoloApi.Model.SocialChannel
-  alias HoloApi.Model.Member
-  alias HoloApi.Model.SocialPlatform
+  alias HoloApi.DataModel.SocialChannel
+  alias HoloApi.DataModel.Member
+  alias HoloApi.DataModel.SocialPlatform
 
   schema "social_channels" do
     field :name, :string

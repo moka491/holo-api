@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.Group.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A group is a subset of virtual youtubers, which are working for a company, that often collaborate together under a common name.
@@ -29,6 +30,6 @@ defmodule HoloApiWeb.Schema.Group.Types do
     @desc """
     The agency under which the group operates.
     """
-    field :members, list_of(:member)
+    field :members, list_of(:member), resolve: dataloader(HoloApi.Repo)
   end
 end

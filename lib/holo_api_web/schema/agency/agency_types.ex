@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.Agency.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   An agency is a subbranch of a company that employs virtual youtuber talents.
@@ -33,11 +34,11 @@ defmodule HoloApiWeb.Schema.Agency.Types do
     @desc """
     The members which are employed in the agency.
     """
-    field :members, list_of(:member)
+    field :members, list_of(:member), resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The groups in which the members of the agency are categorized.
     """
-    field :groups, list_of(:group)
+    field :groups, list_of(:group), resolve: dataloader(HoloApi.Repo)
   end
 end

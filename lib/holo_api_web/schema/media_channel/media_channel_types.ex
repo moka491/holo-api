@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.MediaChannel.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A media channel defines a channel or profile on a media platform.
@@ -34,11 +35,11 @@ defmodule HoloApiWeb.Schema.MediaChannel.Types do
     @desc """
     The virtual youtuber which operates on this channel.
     """
-    field :member, :member
+    field :member, :member, resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The media platform on which this channel is hosted.
     """
-    field :media_platform, :media_platform
+    field :media_platform, :media_platform, resolve: dataloader(HoloApi.Repo)
   end
 end

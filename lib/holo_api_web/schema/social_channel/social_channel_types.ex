@@ -1,5 +1,6 @@
 defmodule HoloApiWeb.Schema.SocialChannel.Types do
   use Absinthe.Schema.Notation
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
 
   @desc """
   A social channel defines a channel or profile on a social platform.
@@ -34,11 +35,11 @@ defmodule HoloApiWeb.Schema.SocialChannel.Types do
     @desc """
     The virtual youtuber which operates on this channel.
     """
-    field :member, :member
+    field :member, :member, resolve: dataloader(HoloApi.Repo)
 
     @desc """
     The social platform on which this channel is hosted.
     """
-    field :social_platform, :social_platform
+    field :social_platform, :social_platform, resolve: dataloader(HoloApi.Repo)
   end
 end

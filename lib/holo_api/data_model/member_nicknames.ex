@@ -1,7 +1,7 @@
-defmodule HoloApi.Model.MemberNickname do
+defmodule HoloApi.DataModel.MemberNickname do
   use Ecto.Schema
 
-  alias HoloApi.Model.Member
+  alias HoloApi.DataModel.Member
 
   schema "member_nicknames" do
     field :nickname, :string
