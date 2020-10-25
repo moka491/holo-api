@@ -28,15 +28,9 @@ Table members {
   gender varchar
   zodiac varchar
   emoji varchar
+  nicknames "string[]"
   // perhaps adding later
   // illustrator, live2d illustrator
-}
-
-// Array of nicknames for each member
-Table member_nicknames {
-  id int [pk, increment]
-  member_id int [not null, ref: > members.id]
-  nickname varchar [not null]
 }
 
 Table groups {

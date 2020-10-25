@@ -4,7 +4,6 @@ defmodule HoloApi.DataModel.Member do
   alias HoloApi.Repo
   alias HoloApi.DataModel.Member
   alias HoloApi.DataModel.Agency
-  alias HoloApi.DataModel.MemberNickname
   alias HoloApi.DataModel.Group
   alias HoloApi.DataModel.Livestream
   alias HoloApi.DataModel.SocialChannel
@@ -21,7 +20,8 @@ defmodule HoloApi.DataModel.Member do
     field :zodiac, :string
     field :emoji, :string
 
-    has_many :nicknames, MemberNickname
+    field :nicknames, {:array, :string}
+
     belongs_to :agency, Agency
     many_to_many :groups, Group, join_through: "group_members"
 

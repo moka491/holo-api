@@ -24,7 +24,7 @@ defmodule HoloApiWeb.Schema.Member.Types do
     @desc """
     The nicknames associated with the vtuber.
     """
-    field :nicknames, list_of(:string), resolve: dataloader(HoloApi.Repo)
+    field :nicknames, list_of(:string)
 
     @desc """
     The age declaration of the vtuber.

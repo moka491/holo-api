@@ -12,6 +12,8 @@ defmodule HoloApi.Repo.Migrations.CreateMembers do
       add(:zodiac, :string)
       add(:emoji, :string)
 
+      add(:nicknames, {:array, :string})
+
       add(:agency_id, references(:agencies))
 
       timestamps()
