@@ -1,9 +1,8 @@
 alias HoloApi.Repo
-alias HoloApi.DataModel.Company
-alias HoloApi.DataModel.Agency
+alias HoloApi.DataModel.Member
 
 %Member{
-  id: 1
+  id: 1,
   name: "Oozora Subaru",
   name_jp: "大空スバル",
   debut_date: DateTime.from_unix!(0),
@@ -12,10 +11,10 @@ alias HoloApi.DataModel.Agency
   zodiac: "Cancer",
   emoji: "🚑",
   nicknames: [
-    %MemberNickname{nickname: "Subaru"},
-    %MemberNickname{nickname: "Subachi"},
-    %MemberNickname{nickname: "Subatani Subao"}
+    "Subaru",
+    "Subachi",
+    "Subatani Subao"
   ],
   agency_id: 1
 }
-|> Repo.insert_or_update!!()
+|> Repo.insert!()

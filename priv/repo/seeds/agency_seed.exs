@@ -1,5 +1,4 @@
 alias HoloApi.Repo
-alias HoloApi.DataModel.Company
 alias HoloApi.DataModel.Agency
 
 %Agency{
@@ -9,4 +8,4 @@ alias HoloApi.DataModel.Agency
   website_url: "https://www.hololive.tv/",
   company_id: 1
 }
-|> Repo.insert_or_update!()
+|> Repo.insert!()
