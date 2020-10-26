@@ -22,11 +22,9 @@ defmodule HoloApi.DataModel.Agency do
 
   def list_all() do
     Repo.all(Agency)
-    |> Repo.preload([:company, :members, :groups])
   end
 
   def get_by_id(id) do
     Repo.get(Agency, id)
-    |> Repo.preload([:company, :members, :groups])
   end
 end
