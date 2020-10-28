@@ -45,7 +45,8 @@ defmodule HoloApi.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~> 1.5"},
       {:absinthe_plug, "~> 1.5"},
-      {:dataloader, "~> 1.0.8"}
+      {:dataloader, "~> 1.0.8"},
+      {:seedex, "~> 0.3.0"}
     ]
   end
 
@@ -58,7 +59,7 @@ defmodule HoloApi.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "ecto.setup"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "seedex.seed"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
     ]
