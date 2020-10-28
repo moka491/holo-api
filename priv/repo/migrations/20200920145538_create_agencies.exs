@@ -7,7 +7,7 @@ defmodule HoloApi.Repo.Migrations.CreateAgencies do
       add(:name_jp, :string)
       add(:website_url, :string)
 
-      add(:company_id, references(:companies), null: false)
+      add(:company_id, references(:companies))
 
       timestamps()
     end
