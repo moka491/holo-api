@@ -1,5 +1,6 @@
 defmodule HoloApi.DataModel.Group do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias HoloApi.Repo
   alias HoloApi.DataModel.Group
@@ -14,6 +15,14 @@ defmodule HoloApi.DataModel.Group do
     many_to_many :members, Member, join_through: "group_members"
 
     timestamps()
+  end
+
+  def changeset(group, params \\ %{}) do
+    group
+    |> cast(params, [:name, :name_jp, :agency_id])
+    |> validate_required([:name, :agency_id])
+    |> unique_constraint(:name)
+    |> assoc_constraint(:agency)
   end
 
   def list_all() do

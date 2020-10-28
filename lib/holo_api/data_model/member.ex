@@ -1,5 +1,6 @@
 defmodule HoloApi.DataModel.Member do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias HoloApi.Repo
   alias HoloApi.DataModel.Member
@@ -23,6 +24,7 @@ defmodule HoloApi.DataModel.Member do
     field :nicknames, {:array, :string}
 
     belongs_to :agency, Agency
+
     many_to_many :groups, Group, join_through: "group_members"
 
     has_many :livestreams, Livestream
@@ -30,6 +32,23 @@ defmodule HoloApi.DataModel.Member do
     has_many :social_channels, SocialChannel
 
     timestamps()
+  end
+
+  def changeset(member, params \\ %{}) do
+    member
+    |> cast(params, [
+      :name,
+      :name_jp,
+      :debut_date,
+      :age,
+      :gender,
+      :zodiac,
+      :emoji,
+      :nicknames,
+      :agency_id
+    ])
+    |> validate_required([:name])
+    |> unique_constraint(:name)
   end
 
   def list_all() do

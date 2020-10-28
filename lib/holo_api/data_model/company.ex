@@ -1,5 +1,6 @@
 defmodule HoloApi.DataModel.Company do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias HoloApi.Repo
   alias HoloApi.DataModel.Company
@@ -13,6 +14,13 @@ defmodule HoloApi.DataModel.Company do
     has_many :agencies, Agency
 
     timestamps()
+  end
+
+  def changeset(company, params \\ %{}) do
+    company
+    |> cast(params, [:name, :name_jp, :website_url])
+    |> validate_required([:name])
+    |> unique_constraint(:name)
   end
 
   def list_all() do

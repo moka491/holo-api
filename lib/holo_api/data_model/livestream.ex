@@ -1,5 +1,6 @@
 defmodule HoloApi.DataModel.Livestream do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias HoloApi.Repo
   alias HoloApi.DataModel.Livestream
@@ -18,6 +19,24 @@ defmodule HoloApi.DataModel.Livestream do
     belongs_to :media_channel, MediaChannel
 
     timestamps()
+  end
+
+  def changeset(livestream, params \\ %{}) do
+    livestream
+    |> cast(params, [
+      :title,
+      :stream_url,
+      :thumbnail_url,
+      :status,
+      :start_date,
+      :end_date,
+      :member_id,
+      :media_channel_id
+    ])
+    |> validate_required([:title, :stream_url, :start_date, :member_id, :media_channel_id])
+    |> unique_constraint(:stream_url)
+    |> assoc_constraint(:member)
+    |> assoc_constraint(:media_channel)
   end
 
   def list_all() do

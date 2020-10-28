@@ -1,5 +1,6 @@
 defmodule HoloApi.DataModel.MediaChannel do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias HoloApi.Repo
   alias HoloApi.DataModel.MediaChannel
@@ -16,6 +17,22 @@ defmodule HoloApi.DataModel.MediaChannel do
     belongs_to :media_platform, MediaPlatform
 
     timestamps()
+  end
+
+  def changeset(media_channel, params \\ %{}) do
+    media_channel
+    |> cast(params, [
+      :name,
+      :channel_id,
+      :channel_url,
+      :thumbnail_url,
+      :member_id,
+      :media_platform_id
+    ])
+    |> validate_required([:name, :channel_id, :channel_url, :member_id, :media_platform_id])
+    |> unique_constraint(:channel_id)
+    |> assoc_constraint(:member)
+    |> assoc_constraint(:media_platform)
   end
 
   def list_all() do

@@ -1,5 +1,6 @@
 defmodule HoloApi.DataModel.SocialChannel do
   use Ecto.Schema
+  import Ecto.Changeset
 
   alias HoloApi.Repo
   alias HoloApi.DataModel.SocialChannel
@@ -16,6 +17,22 @@ defmodule HoloApi.DataModel.SocialChannel do
     belongs_to :social_platform, SocialPlatform
 
     timestamps()
+  end
+
+  def changeset(social_channel, params \\ %{}) do
+    social_channel
+    |> cast(params, [
+      :name,
+      :channel_id,
+      :channel_url,
+      :thumbnail_url,
+      :member_id,
+      :social_platform_id
+    ])
+    |> validate_required([:name, :channel_id, :channel_url, :member_id, :social_platform_id])
+    |> unique_constraint(:channel_id)
+    |> assoc_constraint(:member)
+    |> assoc_constraint(:social_platform)
   end
 
   def list_all() do
