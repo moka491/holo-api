@@ -14,7 +14,8 @@ defmodule HoloApi.DataModel.Member do
     field :name, :string
     field :name_jp, :string
 
-    field :debut_date, :utc_datetime
+    field :debut_date, :date
+    field :birthday, :string
     field :age, :string
     field :height, :integer
     field :gender, :string
@@ -40,6 +41,7 @@ defmodule HoloApi.DataModel.Member do
       :name,
       :name_jp,
       :debut_date,
+      :birthday,
       :age,
       :gender,
       :zodiac,

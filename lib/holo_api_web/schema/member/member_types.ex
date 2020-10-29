@@ -44,7 +44,12 @@ defmodule HoloApiWeb.Schema.Member.Types do
     @desc """
     The date and time at which the vtuber has debuted first.
     """
-    field :debut_date, :datetime
+    field :debut_date, :date
+
+    @desc """
+    The date of the vtuber's birthday.
+    """
+    field :birthday, :string
 
     @desc """
     The zodiac sign of the vtuber.

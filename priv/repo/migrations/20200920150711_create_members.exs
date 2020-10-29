@@ -5,7 +5,8 @@ defmodule HoloApi.Repo.Migrations.CreateMembers do
     create table(:members) do
       add(:name, :string, null: false)
       add(:name_jp, :string)
-      add(:debut_date, :utc_datetime)
+      add(:debut_date, :date)
+      add(:birthday, :string)
       add(:age, :string)
       add(:height, :integer)
       add(:gender, :string)
