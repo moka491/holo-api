@@ -49,7 +49,7 @@ defmodule HoloApiWeb.Schema.Member.Types do
     @desc """
     The date of the vtuber's birthday.
     """
-    field :birthday, :string
+    field :birthday, :date
 
     @desc """
     The zodiac sign of the vtuber.

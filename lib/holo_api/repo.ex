@@ -3,7 +3,7 @@ defmodule HoloApi.Repo do
     otp_app: :holo_api,
     adapter: Ecto.Adapters.Postgres
 
-  def query(queryable, _params) do
+  def dataloader_query(queryable, _params) do
     queryable
   end
 end

@@ -70,7 +70,7 @@ defmodule HoloApiWeb.Schema do
       Dataloader.new()
       |> Dataloader.add_source(
         Repo,
-        Dataloader.Ecto.new(Repo, query: &Repo.query/2)
+        Dataloader.Ecto.new(Repo, query: &Repo.dataloader_query/2)
       )
 
     Map.put(ctx, :loader, loader)

@@ -6,7 +6,7 @@ defmodule HoloApi.Repo.Migrations.CreateMembers do
       add(:name, :string, null: false)
       add(:name_jp, :string)
       add(:debut_date, :date)
-      add(:birthday, :string)
+      add(:birthday, :date)
       add(:age, :string)
       add(:height, :integer)
       add(:gender, :string)

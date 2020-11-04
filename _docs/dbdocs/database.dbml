@@ -23,7 +23,7 @@ Table members {
   name_jp varchar
   agency_id int [ref: > agencies.id]
   debut_date date
-  birthday varchar
+  birthday date
   age int
   height int
   gender varchar

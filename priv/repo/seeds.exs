@@ -1,5 +1,5 @@
 alias HoloApi.Repo
-alias HoloApi.DataModel.{Company, Agency, Group, Member}
+alias HoloApi.DataModel.{Company, Agency, Group, Member, GroupMember}
 
 companies = %{
   cover: %Company{
@@ -125,7 +125,7 @@ members = %{
     name: "Tokino Sora",
     name_jp: "ときのそら",
     debut_date: Date.from_iso8601!("2017-09-07"),
-    birthday: "15th May 2000",
+    birthday: Date.from_iso8601!("0004-05-15"),
     age: "20",
     gender: "Female",
     height: 160,
@@ -137,11 +137,96 @@ members = %{
       "〇〇's Sora"
     ],
     agency_id: agencies.hololive.id
+  },
+  roboco: %Member{
+    id: 2,
+    name: "Roboco",
+    name_jp: "ロボ子",
+    debut_date: Date.from_iso8601!("2018-03-04"),
+    birthday: Date.from_iso8601!("0004-05-23"),
+    age: "17",
+    gender: "Female",
+    height: 154,
+    zodiac: "Gemini",
+    emoji: "🤖",
+    nicknames: [
+      "Roboco"
+    ],
+    agency_id: agencies.hololive.id
+  },
+  sakura_miko: %Member{
+    id: 3,
+    name: "Sakura Miko",
+    name_jp: "さくらみこ",
+    debut_date: Date.from_iso8601!("2018-08-01"),
+    birthday: Date.from_iso8601!("0004-03-05"),
+    age: "18.2",
+    gender: "Female",
+    height: 152,
+    zodiac: "Pisces",
+    emoji: "🌸",
+    nicknames: [
+      "Miko-chi",
+      "Virtual Elite Miko",
+      "Elite Miko",
+      "sakuramiko35"
+    ],
+    agency_id: agencies.hololive.id
+  },
+  hoshimachi_suisei: %Member{
+    id: 4,
+    name: "Hoshimachi Suisei",
+    name_jp: "星街すいせい",
+    debut_date: Date.from_iso8601!("2018-03-22"),
+    birthday: Date.from_iso8601!("0004-03-22")
+    age: "18 (forever)",
+    gender: "Female",
+    height: 160,
+    zodiac: "Aries",
+    emoji: "☄️",
+    nicknames: [
+      "Sui-chan"
+    ],
+    agency: agencies.hololive.id
+  },
+  yozora_mel: %Member{
+    id: 5,
+    name: "Yozora Mel",
+    name_jp: "夜空メル",
+    debut_date: Date.from_iso8601!("2018-05-13"),
+    birthday: Date.from_iso8601!("0004-10-31")
+    gender: "Female",
+    height: 154,
+    zodiac: "Scorpio",
+    emoji: "🌟",
+    nicknames: [
+      "Merumeru"
+    ],
+    agency: agencies.hololive.id
   }
 }
 
-for dataset <- [companies, agencies, groups, members] do
+group_members = %{
+  tokino_sora: %GroupMember{
+    member_id: members.tokino_sora.id,
+    group_id: groups.holo_3d_talents.id
+  },
+  roboco: %GroupMember{
+    member_id: members.roboco.id,
+    group_id: groups.holo_3d_talents.id
+  },
+  sakura_miko: %GroupMember{
+    member_id: members.sakura_miko.id,
+    group_id: groups.holo_3d_talents.id
+  },
+  hoshimachi_suisei: %GroupMember{
+    member_id: members.hoshimachi_suisei.id,
+    group_id: groups.holo_2d_talents.id
+  }
+}
+
+for dataset <- [companies, agencies, groups, members, group_members] do
   for entry <- Map.values(dataset) do
-    entry |> Repo.insert!(on_conflict: :replace_all, conflict_target: :id)
+    entry |> Repo.insert!(on_conflict: :replace_all, conflict_target: [:id])
   end
 end
